@@ -1,0 +1,99 @@
+/* =======================================================
+ VARIÁVEIS DE COR (Mantidas do seu projeto)
+======================================================== */
+$cor-principal-verde: #0e6c43;
+$cor-principal-azul: #66c4c6;
+$cor-complementar-verde: #238b69;
+$cor-fundo-claro: #f4f0e9;
+
+
+/* =======================================================
+ ESTILOS DO HERO SECTION (COM GRADIENTE ANIMADO)
+ Documentação:
+ - `height: 85vh;` define uma altura impactante.
+ - `background`: Cria um gradiente usando 3 cores da sua paleta para um efeito mais rico. O ângulo de 135deg cria uma transição diagonal.
+ - `background-size: 400% 400%;` O segredo da animação! O gradiente é criado 4x maior que a tela.
+ - `animation`: Aplica a animação 'gradientAnimation' que move a posição do fundo gigante, criando o efeito de movimento suave.
+======================================================== */
+.hero-section {
+  position: relative;
+  height: 85vh;
+  color: white;
+  background: linear-gradient(135deg, $cor-principal-verde, $cor-complementar-verde, $cor-principal-azul);
+  background-size: 400% 400%;
+  animation: gradientAnimation 15s ease infinite;
+}
+
+/* =======================================================
+ ESTILOS DO CONTEÚDO (Texto e Títulos)
+ Documentação:
+ - O `z-index` aqui não é mais estritamente necessário sem a sobreposição, mas é uma boa prática mantê-lo.
+ - A animação 'fadeInUp' é mantida para uma entrada suave do conteúdo.
+======================================================== */
+.hero-content {
+  position: relative;
+  z-index: 2;
+  animation: fadeInUp 1s ease-in-out;
+}
+
+/* Documentação de Tipografia:
+ - Estilos limpos para garantir máxima legibilidade sobre o fundo colorido.
+ - O text-shadow foi removido para um look mais "flat" e moderno, que combina bem com gradientes.
+*/
+.hero-subtitulo {
+  font-size: 1rem;
+  font-weight: 500;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  opacity: 0.9; // Um pouco de transparência para suavizar.
+}
+
+.hero-titulo {
+  // O tamanho e peso do 'display-3 fw-bold' do Bootstrap já são ótimos.
+}
+
+/* =======================================================
+ ESTILO DO BOTÃO (CALL-TO-ACTION)
+ Documentação:
+ - O botão agora usa um fundo branco para criar um ponto de contraste forte contra o gradiente.
+ - A cor do texto do botão vem do seu verde principal.
+======================================================== */
+.btn-cta-primary {
+  background-color: white;
+  color: $cor-principal-verde; // Contraste forte com o fundo.
+  padding: 15px 35px;
+  border-radius: 50px;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  border: none;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+
+  &:hover {
+    background-color: $cor-fundo-claro; // Um leve tom de creme no hover.
+    transform: translateY(-3px);
+  }
+}
+
+/* =======================================================
+ ANIMAÇÕES KEYFRAMES
+ Documentação:
+ - `gradientAnimation`: Muda o `background-position` do gradiente ao longo do tempo. Como o fundo é 4x maior, a animação revela diferentes partes do gradiente, criando um movimento fluido.
+ - `fadeInUp`: Animação de entrada para o conteúdo de texto.
+======================================================== */
+@keyframes gradientAnimation {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

@@ -1,0 +1,76 @@
+
+$cor-principal-verde: #0e6c43; // Verde escuro da palmeira e do nome "Carlos"
+$cor-principal-azul: #66c4c6;   // Azul claro da casa e do nome "Pousada"
+$cor-complementar-verde: #238b69; // Verde claro da palmeira
+$cor-fundo-claro: #f4f0e9;
+$theme-colors: (
+  "primary": $cor-principal-verde,
+  "secondary": $cor-principal-azul,
+);
+.comodidades-section {
+  background-color: $cor-fundo-claro;
+}
+
+// Estilo do Card de Comodidade
+.comodidade-card {
+  // Centralizando o conteúdo do card via SCSS
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  // Estilo visual do card
+  background-color: #ffffff; // Fundo branco para se destacar
+  border: none;
+  border-radius: 15px; // Bordas mais arredondadas
+  padding: 2.5rem;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05); // Sombra sutil padrão
+  transition: all 0.3s ease-in-out;
+
+  &:hover {
+    transform: translateY(-8px); // Efeito de elevação um pouco maior
+    box-shadow: 0 12px 25px rgba(0, 0, 0, 0.1); // Sombra mais forte no hover
+  }
+
+  h3 {
+    font-weight: 700;
+    color: $cor-principal-verde;
+  }
+}
+
+/* =======================================================
+ ESTILO DO ÍCONE E SEU INVÓLUCRO (WRAPPER)
+ Documentação:
+ - .icon-wrapper cria o círculo de fundo.
+ - Usamos flexbox para centralizar perfeitamente o ícone <i> dentro do círculo.
+ - A cor de fundo é uma versão bem clara do seu azul principal.
+======================================================== */
+.icon-wrapper {
+  // Dimensões do círculo
+  height: 90px;
+  width: 90px;
+  border-radius: 50%; // Deixa a div redonda
+
+  // Cor e centralização do ícone
+  background-color: lighten($cor-principal-azul, 25%); // Azul bem clarinho
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.3s ease-in-out;
+
+  // Estilo do ícone em si
+  i {
+    font-size: 3.5rem;
+    color: $cor-principal-verde; // Cor principal para dar destaque
+    transition: transform 0.3s ease-in-out;
+  }
+}
+
+// Efeito de hover combinado
+.comodidade-card:hover .icon-wrapper {
+  background-color: $cor-principal-azul; // Círculo fica com a cor azul principal
+
+  i {
+    color: white; // Ícone fica branco para contrastar
+    transform: scale(1.1); // Ícone cresce um pouco
+  }
+}

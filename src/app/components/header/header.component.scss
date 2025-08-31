@@ -1,0 +1,87 @@
+/* You can add global styles to this file, and also import other style files */
+$cor-principal-verde: #0e6c43; // Verde escuro da palmeira e do nome "Carlos"
+$cor-principal-azul: #66c4c6;   // Azul claro da casa e do nome "Pousada"
+$cor-complementar-verde: #238b69; // Verde claro da palmeira
+$cor-fundo-claro: #f4f0e9;
+// Classe principal da nossa navbar
+.navbar-custom {
+  background-color: transparent; // Começa transparente
+  padding: 15px 0;
+  transition: all 0.4s ease-in-out; // Animação suave para todas as mudanças
+
+  // Estilo do logo
+  .logo-header {
+    height: 60px; // Um logo um pouco menor para um visual mais elegante
+    transition: height 0.4s ease-in-out;
+  }
+
+  // Estilo dos links de navegação
+  .nav-link {
+    color: white;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-size: 0.9rem;
+    margin: 0 10px;
+    position: relative;
+    padding-bottom: 8px;
+
+    // Efeito de sublinhado animado no hover
+    &::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 0%;
+      height: 2px;
+      background-color: $cor-principal-azul;
+      transition: width 0.3s ease;
+    }
+
+    &:hover::after,
+    &.active::after {
+      width: 100%;
+    }
+  }
+
+  // Estilo do botão de reserva
+  .btn-cta-nav {
+    border-radius: 50px;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    padding: 8px 25px;
+    transition: all 0.3s ease;
+  }
+}
+.navbar-custom.scrolled {
+  background-color: $cor-fundo-claro;
+  padding: 5px 0;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+
+  .logo-header {
+    height: 50px; // Logo diminui um pouco mais no scroll
+  }
+
+  // Links mudam de cor para ter contraste com o fundo claro
+  .nav-link {
+    color: $cor-principal-verde;
+
+    &:hover,
+    &.active {
+      color: $cor-principal-azul;
+    }
+  }
+
+  // Botão também inverte as cores
+  .btn-cta-nav {
+    background-color: $cor-principal-verde;
+    border-color: $cor-principal-verde;
+    color: white;
+
+    &:hover {
+      background-color: $cor-complementar-verde;
+      border-color: $cor-complementar-verde;
+    }
+  }
+}
