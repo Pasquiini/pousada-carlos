@@ -1,0 +1,24 @@
+<section class="galeria" id="galeria">
+  <div class="container">
+    <h2 class="text-center mb-5">Nossa Galeria de Momentos</h2>
+
+    <div class="galeria-grid">
+      <div class="galeria-item" *ngFor="let imagem of imagensVisiveis" (click)="abrirLightbox(imagem)">
+        <img [src]="imagem.url" [alt]="imagem.alt" loading="lazy">
+      </div>
+    </div>
+
+    <div class="text-center mt-5" *ngIf="imagensVisiveis.length < todasAsImagens.length">
+      <button class="btn btn-primary btn-lg" (click)="carregarMaisImagens()">
+        Carregar Mais
+      </button>
+    </div>
+  </div>
+</section>
+
+<div class="lightbox-overlay" *ngIf="imagemSelecionada" (click)="fecharLightbox()">
+  <div class="lightbox-content">
+    <span class="lightbox-close" (click)="fecharLightbox()">&times;</span>
+    <img [src]="imagemSelecionada.url" [alt]="imagemSelecionada.alt">
+  </div>
+</div>
